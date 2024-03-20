@@ -47,13 +47,13 @@
                 <div id="responsive-nav">
                     <!-- NAV -->
                     <ul class="main-nav nav navbar-nav">
-                        <li><a  href="myaccount">Home</a></li>
+                        <li><a  href="myaccount">My Account</a></li>
                         <li><a  href="changepassword">Change password</a></li>
-                        <li class="active"><a  href="orders">Your Order</a></li>
+                        <li class="active"><a href="orders">Your Order</a></li>
                             <c:if test="${sessionScope.account.roleId == 0}">
                             <li><a href="accountlist">Account List</a></li>
-                            <li><a  href="statistic">Statistic</a></li>
-                            </c:if>  
+                            <li><a href="statistic">Statistic</a></li>
+                            </c:if> 
                     </ul>
                     <!-- /NAV -->
                 </div>
@@ -85,6 +85,7 @@
                                 <th style="text-align: center">Total</th>
                                 <th style="text-align: center">Order date</th>
                                 <th>Status</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -125,7 +126,26 @@
                                             <c:set var="lastDate" value="${p.order.date}" />
                                         </c:otherwise>
                                     </c:choose>
-                                    <td style="color: ${p.order.status ? 'green' : 'yellow'};">${p.order.status ? "Paid" : "Not paid"}</td>
+                                    <c:choose>
+                                        <c:when test="${p.order.status == 0}">
+                                            <td style="color: yellow;">Delivering</td>
+                                        </c:when>
+                                        <c:when test="${p.order.status == 1}">
+                                            <td style="color: green;">Delivered</td>
+                                        </c:when>
+                                        <c:when test="${p.order.status == 2}">
+                                            <td style="color: red;">Cancelled</td>
+                                        </c:when>
+                                        <c:when test="${p.order.status == 3}">
+                                            <td style="color: orange;">Preparing</td>
+                                        </c:when>
+                                    </c:choose>
+                                    <td>
+                                        <a href="cancelorder?oid=${p.order.id}" class="checkout" data-toggle="modal" 
+                                           onclick="return ${p.order.status == 3 ? 'true' : 'false'};">
+                                            <i class="glyphicon glyphicon-remove-sign" data-toggle="tooltip" title="Cancel my order"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                             </c:forEach>
                         </tbody>

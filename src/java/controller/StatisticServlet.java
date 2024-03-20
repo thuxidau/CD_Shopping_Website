@@ -1,6 +1,7 @@
 package controller;
 
 import dal.OrderDAO;
+import dal.OrderDetailDAO;
 import dal.ProductDAO;
 import dal.TopSpendingDAO;
 import dal.UsersDAO;
@@ -12,7 +13,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.List;
-import model.Order;
 import model.Product;
 import model.TopSpending;
 import model.Users;
@@ -30,6 +30,7 @@ public class StatisticServlet extends HttpServlet {
         } else {
             ProductDAO pd = new ProductDAO();
             OrderDAO od = new OrderDAO();
+            OrderDetailDAO odd = new OrderDetailDAO();
             UsersDAO ud = new UsersDAO();
             TopSpendingDAO tsd = new TopSpendingDAO();
 
@@ -46,7 +47,7 @@ public class StatisticServlet extends HttpServlet {
             float earn = od.getEarn();
             request.setAttribute("earn", earn);
 
-            int orders = od.getTotalOrders();
+            int orders = odd.getTotalOrders();
             request.setAttribute("orders", orders);
 
             List<Users> listU = ud.getAll();

@@ -2,9 +2,9 @@ package controller;
 
 import dal.UsersDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -43,6 +43,10 @@ public class ChangePasswordServlet extends HttpServlet {
                         ud.updatePassword(us);
                         session.setAttribute("account", us);
                         request.setAttribute("passsuccess", "Password changed successfully.");
+                        
+                        Cookie p = new Cookie("passC", "");
+                        p.setMaxAge(0);
+                        response.addCookie(p);
                         request.getRequestDispatcher("changepassword.jsp").forward(request, response);
                     }
                 }

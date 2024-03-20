@@ -54,13 +54,13 @@
                 <div id="responsive-nav">
                     <!-- NAV -->
                     <ul class="main-nav nav navbar-nav">
-                        <li class="active"><a  href="myaccount">Home</a></li>
+                        <li class="active"><a  href="myaccount">My Account</a></li>
                         <li><a  href="changepassword">Change password</a></li>
                         <li><a  href="orders">Your Order</a></li>
-                        <c:if test="${sessionScope.account.roleId == 0}">
+                            <c:if test="${sessionScope.account.roleId == 0}">
                             <li><a href="accountlist">Account List</a></li>
                             <li><a href="statistic">Statistic</a></li>
-                        </c:if> 
+                            </c:if> 
                     </ul>
                     <!-- /NAV -->
                 </div>
@@ -82,6 +82,12 @@
                             <h6>Upload a different photo...</h6>
                             <input type="file" class="text-center center-block file-upload">
                         </div>
+                        <br/><br/>
+                        <form id="deleteForm" action="delacc" method="POST">
+                            <div class="text-center">
+                                <button onclick="return deleteaccount('${account.username}')" class="btn btn-sm btn-success" id="delete" type="button" style="background-color: grey; border-color: grey;">Delete this account</button> 
+                            </div>
+                        </form>
                     </div>
                     <!--end profile-->
 
@@ -163,6 +169,16 @@
                         x.disabled = true;
                     });
                 }
+            }
+        </script>
+        <script type="text/javascript">
+            function deleteaccount(user) {
+                if (confirm('Are you sure to delete this account?')) {
+                    var form = document.getElementById('deleteForm');
+                    form.action = "delacc?user=" + user;
+                    form.submit();
+                }
+                return false;
             }
         </script>
     </body>

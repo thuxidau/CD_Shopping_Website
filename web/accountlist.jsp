@@ -46,13 +46,13 @@
                 <div id="responsive-nav">
                     <!-- NAV -->
                     <ul class="main-nav nav navbar-nav">
-                        <li><a  href="myaccount">Home</a></li>
+                        <li><a  href="myaccount">My Account</a></li>
                         <li><a  href="changepassword">Change password</a></li>
                         <li><a  href="orders">Your Order</a></li>
-                            <c:if test="${sessionScope.account.roleId == 0}">
+                        <c:if test="${sessionScope.account.roleId == 0}">
                             <li class="active"><a href="accountlist">Account List</a></li>
-                            <li><a  href="statistic">Statistic</a></li>
-                            </c:if> 
+                            <li><a href="statistic">Statistic</a></li>
+                        </c:if> 
                     </ul>
                     <!-- /NAV -->
                 </div>
@@ -120,6 +120,7 @@
                                     <td style="text-align: center;">
                                         <a href="makeadmin?user=${p.username}" class="delete" data-toggle="modal" onclick="return confirm('Are you sure to make this account admin?')"><i class="glyphicon glyphicon-user" data-toggle="tooltip" title="Make admin"></i></a>
                                         <a href="removeadmin?user=${p.username}" class="delete" data-toggle="modal" onclick="return confirm('Are you sure to remove this account as admin?')"><i class="glyphicon glyphicon-remove-circle" data-toggle="tooltip" title="Remove admin"></i></a>
+                                        <a href="deleteaccount?user=${p.username}" class="delete" data-toggle="modal" onclick="return confirm('Are you sure to remove this account?')"><i class="glyphicon glyphicon-remove" data-toggle="tooltip" title="Remove account"></i></a>
                                     </td>
                                 </tr>
                             </c:forEach>

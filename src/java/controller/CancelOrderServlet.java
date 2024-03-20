@@ -8,16 +8,16 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet(name="GetPaidServlet", urlPatterns={"/paid"})
-public class GetPaidServlet extends HttpServlet {
+@WebServlet(name="CancelOrderServlet", urlPatterns={"/cancelorder"})
+public class CancelOrderServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String id = request.getParameter("oid");
         OrderDAO od = new OrderDAO();
-        od.getPaid(id);
-        response.sendRedirect("customerorders");
+        od.getCancelOrder(id);
+        response.sendRedirect("orders");
     } 
 
     @Override

@@ -3,7 +3,6 @@ package controller;
 import dal.OrderDAO;
 import dal.OrderDetailDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -20,17 +19,7 @@ public class CustomerOrdersServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet CustomerOrdersServlet</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet CustomerOrdersServlet at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        
     } 
 
     @Override
@@ -49,9 +38,9 @@ public class CustomerOrdersServlet extends HttpServlet {
                 indexPage = "1";
             }
             int index = Integer.parseInt(indexPage);
-            int countOrder = od.getTotalOrders();
-            int endPage = countOrder / 10;
-            if (countOrder % 10 != 0) {
+            int countOrder = odd.getTotalOrders();
+            int endPage = countOrder / 15;
+            if (countOrder % 15 != 0) {
                 endPage++;
             }
 

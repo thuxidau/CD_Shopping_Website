@@ -58,15 +58,28 @@ public class OrderDetailDAO extends DBContext {
         return null;
     }
     
+    public int getTotalOrders() {
+        String sql = "select count(OrderID) from OrderDetail";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return 0;
+    }
+    
     public List<OrderDetail> pagingOrder(int index) {
-        UsersDAO ud = new UsersDAO();
         List<OrderDetail> list = new ArrayList<>();
         String sql = "select * from OrderDetail\n"
                 + "order by OrderID\n"
-                + "offset ?  rows fetch next 10 rows only";
+                + "offset ?  rows fetch next 15 rows only";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
-            st.setInt(1, (index - 1) * 10);
+            st.setInt(1, (index - 1) * 15);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 Product p = pd.findProductById(rs.getString("ProductID"));
@@ -103,5 +116,13 @@ public class OrderDetailDAO extends DBContext {
             System.out.println(e);
         }
         return list;
+    }
+    
+    public static void main(String[] args) {
+        OrderDetailDAO od = new OrderDetailDAO();
+        List<OrderDetail> l = od.pagingOrder(3);
+        for (OrderDetail orderDetail : l) {
+            System.out.println(orderDetail);
+        }
     }
 }

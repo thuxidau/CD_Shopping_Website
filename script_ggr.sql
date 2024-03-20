@@ -45,13 +45,13 @@ CREATE TABLE Users(
 	address NVARCHAR(200)
 )
 
--- status: 0: not paid, 1: paid
+-- status: 0: delivering, 1: delivered, 2: cancelled, 3: preparing
 CREATE TABLE [Order](
 	id INT PRIMARY KEY IDENTITY(1,1),
 	[date] DATE,
 	username VARCHAR(50),
 	totalMoney FLOAT,
-	status BIT,
+	status INT,
 	FOREIGN KEY (username) REFERENCES Users(username)
 )
 

@@ -2,8 +2,6 @@ package dal;
 
 import java.time.LocalDate;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 import model.Cart;
 import model.Item;
 import model.Order;
@@ -16,7 +14,7 @@ public class OrderDAO extends DBContext {
         LocalDate current_date = java.time.LocalDate.now();
         String date = current_date.toString();
         try {
-            String sql = "insert into [Order] values (?,?,?,0)";
+            String sql = "insert into [Order] values (?,?,?,3)";
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, date);
             st.setString(2, user.getUsername());
@@ -58,7 +56,6 @@ public class OrderDAO extends DBContext {
                 st4.setInt(1, oid);
                 st4.executeUpdate();
             }
-
         } catch (SQLException e) {
             System.out.println(e);
         }
@@ -75,7 +72,7 @@ public class OrderDAO extends DBContext {
             while (rs.next()) {
                 Users u = ud.checkAccountExist(rs.getString("username"));
                 return (new Order(rs.getInt("id"), rs.getString("date"),
-                        u, rs.getFloat("totalMoney"), rs.getBoolean("status")));
+                        u, rs.getFloat("totalMoney"), rs.getInt("status")));
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -94,8 +91,41 @@ public class OrderDAO extends DBContext {
         }
     }
 
+    public void getDelivering(String id) {
+        try {
+            String sql = "UPDATE [dbo].[Order] SET [status] = 0 WHERE id = ?";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, id);
+            st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+    public void getCancelOrder(String id) {
+        try {
+            String sql = "UPDATE [dbo].[Order] SET [status] = 2 WHERE id = ?";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, id);
+            st.executeUpdate();
+
+            // (update)  - qtysold, + quantity
+            String sql4 = "UPDATE Product\n"
+                    + "SET quantity = Product.quantity + OrderDetail.quantity,\n"
+                    + "    qtysold = qtysold - OrderDetail.quantity\n"
+                    + "FROM Product\n"
+                    + "INNER JOIN OrderDetail ON Product.id = OrderDetail.ProductID\n"
+                    + "WHERE OrderDetail.OrderID = ?";
+            PreparedStatement st4 = connection.prepareStatement(sql4);
+            st4.setString(1, id);
+            st4.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
     public float getEarn() {
-        String sql = "select sum(totalMoney) from [Order]";
+        String sql = "select sum(totalMoney) from [Order] where [status] = 1";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -108,20 +138,6 @@ public class OrderDAO extends DBContext {
         return 0;
     }
 
-    public int getTotalOrders() {
-        String sql = "select count(id) from [Order]";
-        try {
-            PreparedStatement st = connection.prepareStatement(sql);
-            ResultSet rs = st.executeQuery();
-            if (rs.next()) {
-                return rs.getInt(1);
-            }
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-        return 0;
-    }
-    
     public int getTotalOrdersByUser(String user) {
         String sql = "select count(id) from [Order] where username = ?";
         try {

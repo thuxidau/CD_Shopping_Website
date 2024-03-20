@@ -85,8 +85,8 @@ public class UsersDAO extends DBContext {
             System.out.println(e);
         }
     }
-    
-    public void updatePassword(Users user){
+
+    public void updatePassword(Users user) {
         String sql = "UPDATE [dbo].[Users] \n"
                 + "SET [password] = ? \n"
                 + "WHERE username = ?";
@@ -99,14 +99,14 @@ public class UsersDAO extends DBContext {
             System.out.println(e);
         }
     }
-    
-    public List<Users> getAll(){
+
+    public List<Users> getAll() {
         List<Users> list = new ArrayList<>();
         String sql = "select * from Users";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 list.add(new Users(rs.getString("username"), rs.getString("fullname"),
                         rs.getString("phoneNumber"), rs.getString("email"),
                         rs.getInt("gender"), rs.getString("location"),
@@ -119,8 +119,8 @@ public class UsersDAO extends DBContext {
         }
         return null;
     }
-    
-    public void makeAdmin(String username){
+
+    public void makeAdmin(String username) {
         String sql = "UPDATE [dbo].[Users] \n"
                 + "SET [roleId] = 0 \n"
                 + "WHERE username = ?";
@@ -132,8 +132,8 @@ public class UsersDAO extends DBContext {
             System.out.println(e);
         }
     }
-    
-    public void removeAdmin(String username){
+
+    public void removeAdmin(String username) {
         String sql = "UPDATE [dbo].[Users] \n"
                 + "SET [roleId] = 1 \n"
                 + "WHERE username = ?";
@@ -145,7 +145,19 @@ public class UsersDAO extends DBContext {
             System.out.println(e);
         }
     }
-    
+
+    public void removeAccount(String username) {
+        String sql = "DELETE FROM [dbo].[Users]\n"
+                + "      WHERE username = ?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, username);
+            st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
     public List<Users> pagingUser(int index) {
         UsersDAO ud = new UsersDAO();
         List<Users> list = new ArrayList<>();

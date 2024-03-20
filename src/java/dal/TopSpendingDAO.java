@@ -13,6 +13,7 @@ public class TopSpendingDAO extends DBContext {
             String sql = "select top 5 [Order].username, Users.image, Users.fullname, Users.phoneNumber, sum(totalMoney) as total\n"
                     + "  from [Order] \n"
                     + "  join Users on Users.username = [Order].username\n"
+                    + " where [Order].status = 1\n"
                     + "  group by [Order].username, Users.image, Users.fullname, Users.phoneNumber\n"
                     + "  order by total desc\n";
             PreparedStatement st = connection.prepareStatement(sql);

@@ -44,13 +44,13 @@
                 <div id="responsive-nav">
                     <!-- NAV -->
                     <ul class="main-nav nav navbar-nav">
-                        <li><a  href="myaccount">Home</a></li>
+                        <li><a  href="myaccount">My Account</a></li>
                         <li><a  href="changepassword">Change password</a></li>
                         <li><a  href="orders">Your Order</a></li>
-                            <c:if test="${sessionScope.account.roleId == 0}">
+                        <c:if test="${sessionScope.account.roleId == 0}">
                             <li><a href="accountlist">Account List</a></li>
-                            <li class="active"><a  href="statistic">Statistic</a></li>
-                            </c:if> 
+                            <li class="active"><a href="statistic">Statistic</a></li>
+                        </c:if> 
                     </ul>
                     <!-- /NAV -->
                 </div>

@@ -106,6 +106,7 @@
                                     <c:set var="lastUser" value="${null}" />
                                     <c:set var="lastPhone" value="${null}" />
                                     <c:set var="lastAddress" value="${null}" />
+                                    
                                     <c:forEach items="${order}" var="p">
                                         <tr>
                                             <c:choose>
@@ -167,9 +168,31 @@
                                                     <c:set var="lastAddress" value="${p.order.user.address}" />
                                                 </c:otherwise>
                                             </c:choose>
-                                            <td style="color: ${p.order.status ? 'green' : 'yellow'};">${p.order.status ? "Paid" : "Not paid"}</td>
+                                            <c:choose>
+                                                <c:when test="${p.order.status == 0}">
+                                                    <td style="color: yellow;">Delivering</td>
+                                                </c:when>
+                                                <c:when test="${p.order.status == 1}">
+                                                    <td style="color: green;">Delivered</td>
+                                                </c:when>
+                                                <c:when test="${p.order.status == 2}">
+                                                    <td style="color: red;">Cancelled</td>
+                                                </c:when>
+                                                <c:when test="${p.order.status == 3}">
+                                                    <td style="color: orange;">Preparing</td>
+                                                </c:when>
+                                            </c:choose>
                                             <td>
-                                                <a href="paid?oid=${p.order.id}" class="checkout" data-toggle="modal"><i class="glyphicon glyphicon-ok-circle" data-toggle="tooltip" title="Checkout"></i></a>
+                                                <a href="getdelivering?oid=${p.order.id}" class="checkout" data-toggle="modal"
+                                                   onclick="return ${p.order.status == 3 ? 'true' : 'false'};">
+                                                <i class="glyphicon glyphicon-arrow-right" data-toggle="tooltip" title="Delivering"></i></a>
+                                                
+                                                <a href="paid?oid=${p.order.id}" class="checkout" data-toggle="modal"
+                                                   onclick="return ${p.order.status == 0 ? 'true' : 'false'};">
+                                                    <i class="glyphicon glyphicon-ok-circle" data-toggle="tooltip" title="Delivered"></i></a>
+                                                <a href="cancelorderadmin?oid=${p.order.id}" class="checkout" data-toggle="modal"
+                                                   onclick="return ${p.order.status == 0 ? 'true' : 'false'};">
+                                                    <i class="glyphicon glyphicon-ban-circle" data-toggle="tooltip" title="Cancel"></i></a>
                                             </td>
                                         </tr>
                                     </c:forEach>
@@ -182,7 +205,7 @@
                             <ul class="store-pagination">
                                 <c:forEach begin="1" end="${endP}" var="i">
                                     <li class="${i == tagi ? 'active' : ''}"><a href="?index=${i}">${i}</a></li>
-                                </c:forEach>
+                                    </c:forEach>
                             </ul> 
                         </div>
                         <!-- /store bottom filter -->

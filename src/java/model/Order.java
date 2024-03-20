@@ -5,12 +5,12 @@ public class Order {
     private String date;
     private Users user;
     private float totalMoney;
-    private boolean status;
+    private int status;
 
     public Order() {
     }
 
-    public Order(int id, String date, Users user, float totalMoney, boolean status) {
+    public Order(int id, String date, Users user, float totalMoney, int status) {
         this.id = id;
         this.date = date;
         this.user = user;
@@ -18,13 +18,13 @@ public class Order {
         this.status = status;
     }
 
-    public boolean isStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(int status) {
         this.status = status;
-    }    
+    }
 
     public int getId() {
         return id;

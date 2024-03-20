@@ -98,7 +98,7 @@
                                                 <c:forEach items="${product}" var="pr">
                                                     <div class="product">
                                                         <div class="product-img">
-                                                            <img src="${pr.image}" alt="${pr.name}">
+                                                            <a href="detail?pid=${pr.id}"><img src="${pr.image}" alt="${pr.name}" width="100%"></a>
                                                         </div>
                                                         <div class="product-body">
                                                             <p class="product-category">${pr.category.name}</p>
