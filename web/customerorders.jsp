@@ -191,7 +191,7 @@
                                                    onclick="return ${p.order.status == 0 ? 'true' : 'false'};">
                                                     <i class="glyphicon glyphicon-ok-circle" data-toggle="tooltip" title="Delivered"></i></a>
                                                 <a href="cancelorderadmin?oid=${p.order.id}" class="checkout" data-toggle="modal"
-                                                   onclick="return ${p.order.status == 0 ? 'true' : 'false'};">
+                                                   onclick="return ${p.order.status == 3 ? 'true' : 'false'};">
                                                     <i class="glyphicon glyphicon-ban-circle" data-toggle="tooltip" title="Cancel"></i></a>
                                             </td>
                                         </tr>
