@@ -8,7 +8,7 @@ This is a web application for shopping CDs. Users can view products, add them to
 - JSP and JSTL
 - Bootstrap 3
 - Cookie, Session, Filter
-- SQL Server (database)
+- MySQL (database)
 
 # Feature
 * For user
