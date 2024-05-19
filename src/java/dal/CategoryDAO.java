@@ -9,7 +9,7 @@ public class CategoryDAO extends DBContext {
 
     public List<Category> getAll() {
         List<Category> list = new ArrayList<>();
-        String sql = "select * from Category";
+        String sql = "select * from Category;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -23,7 +23,7 @@ public class CategoryDAO extends DBContext {
     }
 
     public Category findCategoryById(int cid) {
-        String sql = "select * from Category where id = ?";
+        String sql = "select * from Category where id = ?;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, cid);

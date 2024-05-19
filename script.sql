@@ -1,59 +1,59 @@
-﻿USE [master]
+USE [master]
 GO
 CREATE DATABASE Groove_Galaxy_Records
 GO
 USE Groove_Galaxy_Records
 GO
 CREATE TABLE Category(
-	id INT PRIMARY KEY IDENTITY(1,1),
-	name NVARCHAR(100)
-)
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(100)
+);
 
 CREATE TABLE Country(
-	id INT PRIMARY KEY IDENTITY(1,1),
-	name NVARCHAR(100)
-)
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(100)
+);
 
 -- status: 1: in stock, 0: out of stock
 CREATE TABLE Product(
-	id INT PRIMARY KEY IDENTITY(1,1),
-	name NVARCHAR(150),
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(150),
 	price FLOAT,
 	quantity INT,
-	description NVARCHAR(4000),
-	image NVARCHAR(500),
-	status BIT,
+	description VARCHAR(4000),
+	image VARCHAR(500),
+	status TINYINT,
 	categoryId INT,
 	countryId INT,
+	qtysold int,
 	FOREIGN KEY (categoryId) REFERENCES Category(id),
-	FOREIGN KEY (countryId) REFERENCES Country(id),
-	qtysold int
-)
+	FOREIGN KEY (countryId) REFERENCES Country(id)
+);
 
 -- roleid: 0: admin, 1: user
 CREATE TABLE Users(
 	username VARCHAR(50) PRIMARY KEY,
-	fullname NVARCHAR(100),
-	phoneNumber NVARCHAR(11),
+	fullname VARCHAR(100),
+	phoneNumber VARCHAR(11),
 	email VARCHAR(100),
 	gender INT,
-	location NVARCHAR(100),
+	location VARCHAR(100),
 	password VARCHAR(100),
 	dob DATE,
 	roleId INT,
-	image NVARCHAR(500),
-	address NVARCHAR(200)
-)
+	image VARCHAR(500),
+	address VARCHAR(200)
+);
 
 -- status: 0: delivering, 1: delivered, 2: cancelled, 3: preparing
-CREATE TABLE [Order](
-	id INT PRIMARY KEY IDENTITY(1,1),
-	[date] DATE,
+CREATE TABLE `Order`(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	`date` DATE,
 	username VARCHAR(50),
 	totalMoney FLOAT,
 	status INT,
 	FOREIGN KEY (username) REFERENCES Users(username)
-)
+);
 
 CREATE TABLE OrderDetail (
 	ProductID INT,
@@ -61,19 +61,22 @@ CREATE TABLE OrderDetail (
 	quantity INT,
 	price FLOAT,
     FOREIGN KEY (ProductID) REFERENCES Product(id),
-    FOREIGN KEY (OrderID) REFERENCES [Order](id),
+    FOREIGN KEY (OrderID) REFERENCES `Order`(id),
     PRIMARY KEY (OrderID, ProductID)
 );
 
-INSERT INTO Category VALUES
+
+INSERT INTO Category (name) VALUES
 ('CD'),
 ('VINYL'),
-('CASSETTE')
+('CASSETTE');
 
-INSERT INTO Country VALUES
-('US-UK'), ('Korea'),('Vietnam')
+INSERT INTO Country (name) VALUES
+('US-UK'), ('Korea'),('Vietnam');
 
-INSERT INTO Product VALUES
+
+
+INSERT INTO Product (name,price,quantity,description,image,status,categoryId,countryId,qtysold) VALUES
 ('TAYLOR SWIFT - MIDNIGHTS (THE LATE NIGHT EDITION)', 16.35, 130,
 'Each CD album includes:
 21 Songs
@@ -445,25 +448,24 @@ B-Side
 7. Happier Than Ever
 8. Male Fantasy',
 'https://img.thetedellis.com/v7/thetedellis.com/wp-content/uploads/2021/04/Billie-Eilish-Happier-Than-Ever-Cassette.jpg?org_if_sml=0',
-1, 3, 1, 0)
+1, 3, 1, 0);
 
+INSERT INTO Users (username, fullname, phoneNumber, email, gender, location, password, dob, roleId, image, address) VALUES 
+('hl14toi','VNHL','0140140140','hl14toi@gmail.com',0,'Thủ Đức','14tymuonnam','1969-12-18',1,
+'', 'Long Phước, Quận 9'),
 
-INSERT INTO Users VALUES 
-('hl14toi','VNHL','0140140140','hl14toi@gmail.com',0,N'Thủ Đức','14tymuonnam','1969-12-18',1,
-'', N'Long Phước, Quận 9'),
-
-('taolatxd','Tranh Nguyen','0937615904','tranhnguyen03@gmail.com',2,N'Quảng Nam','hello123','2003-08-06',1,
-'', N'Hoa Mỹ, Đại Nghĩa, Đại Lộc'), 
+('taolatxd','Tranh Nguyen','0937615904','tranhnguyen03@gmail.com',2,'Quảng Nam','hello123','2003-08-06',1,
+'', 'Hoa Mỹ, Đại Nghĩa, Đại Lộc'), 
 
 ('toiyeuvn','Hang Nguyen Vo Thuy','0987654321','heng@gmail.com',1,'Da Nang','hoilamgi','2004-08-17',0,
 'https://bizweb.dktcdn.net/100/438/408/files/meme-doi-quan-yodyvn4.jpg?v=1687318667723',
-N'149 Núi Thành, Hoà Cường Bắc, Hải Châu'), 
+'149 Núi Thành, Hoà Cường Bắc, Hải Châu'), 
 
-('thuswift',N'Quá Nhanh Quá Nguy Hiểm','1234567890','abc@gmail.com',0,N'Bình Dương','abc123','2001-03-13',1,
-'', N'Đ. NI14, Thới Hoà, Bến Cát'), 
+('thuswift','Quá Nhanh Quá Nguy Hiểm','1234567890','abc@gmail.com',0,'Bình Dương','abc123','2001-03-13',1,
+'', 'Đ. NI14, Thới Hoà, Bến Cát'), 
 
 ('thuxidau','Thu Doan','0305070901','thudoan@fpt.edu.vn',1,'Hanoi','123321','2004-09-02',0,
-'./img/avatar/myavt.jpg', N'10 Khuong Ha, Khuong Dinh, Thanh Xuan'), 
+'./img/avatar/myavt.jpg', '10 Khuong Ha, Khuong Dinh, Thanh Xuan'), 
 
-('triduc','Le Phan Tri Duc','0806040200','ducklee@gmail.com',0,N'Hải Phòng','123','2005-12-06',1,
-'', N'60D P. Phan Bội Châu, Quang Trung, Hồng Bàng')
+('triduc','Le Phan Tri Duc','0806040200','ducklee@gmail.com',0,'Hải Phòng','123','2005-12-06',1,
+'', '60D P. Phan Bội Châu, Quang Trung, Hồng Bàng');

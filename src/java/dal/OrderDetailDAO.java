@@ -36,10 +36,10 @@ public class OrderDetailDAO extends DBContext {
 
     public List<OrderDetail> getOrderDetailByUser(String user) {
         List<OrderDetail> list = new ArrayList<>();
-        String sql = "  select * from OrderDetail od\n"
-                + "  join [Order] o on o.id = od.OrderID\n"
-                + "  where o.username = ?\n"
-                + "  order by o.id asc";
+        String sql = "SELECT * FROM OrderDetail od\n"
+                + "JOIN `Order` o ON o.id = od.OrderID\n"
+                + "WHERE o.username = ?\n"
+                + "ORDER BY o.id ASC;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, user);
@@ -57,9 +57,9 @@ public class OrderDetailDAO extends DBContext {
         }
         return null;
     }
-    
+
     public int getTotalOrders() {
-        String sql = "select count(OrderID) from OrderDetail";
+        String sql = "select count(OrderID) from OrderDetail;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -71,12 +71,12 @@ public class OrderDetailDAO extends DBContext {
         }
         return 0;
     }
-    
+
     public List<OrderDetail> pagingOrder(int index) {
         List<OrderDetail> list = new ArrayList<>();
-        String sql = "select * from OrderDetail\n"
-                + "order by OrderID\n"
-                + "offset ?  rows fetch next 15 rows only";
+        String sql = "SELECT * FROM OrderDetail\n"
+                + "ORDER BY OrderID\n"
+                + "LIMIT 15 OFFSET ?;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, (index - 1) * 15);
@@ -92,15 +92,15 @@ public class OrderDetailDAO extends DBContext {
         }
         return list;
     }
-    
+
     public List<OrderDetail> pagingYourOrder(int index, String user) {
         UsersDAO ud = new UsersDAO();
         List<OrderDetail> list = new ArrayList<>();
-        String sql = "select * from OrderDetail\n"
-                + "join [Order] on [Order].id = OrderDetail.OrderID\n"
-                + "where [Order].username = ?\n"
-                + "order by OrderID\n"
-                + "offset ?  rows fetch next 10 rows only";
+        String sql = "SELECT * FROM OrderDetail\n"
+                + "JOIN `Order` ON `Order`.id = OrderDetail.OrderID\n"
+                + "WHERE `Order`.username = ?\n"
+                + "ORDER BY OrderID\n"
+                + "LIMIT 10 OFFSET ?;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, user);
@@ -116,13 +116,5 @@ public class OrderDetailDAO extends DBContext {
             System.out.println(e);
         }
         return list;
-    }
-    
-    public static void main(String[] args) {
-        OrderDetailDAO od = new OrderDetailDAO();
-        List<OrderDetail> l = od.pagingOrder(3);
-        for (OrderDetail orderDetail : l) {
-            System.out.println(orderDetail);
-        }
     }
 }

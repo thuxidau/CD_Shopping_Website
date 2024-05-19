@@ -14,7 +14,7 @@ public class ProductDAO extends DBContext {
 
     public List<Product> getAll() {
         List<Product> list = new ArrayList<>();
-        String sql = "select * from Product";
+        String sql = "select * from Product;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -42,7 +42,7 @@ public class ProductDAO extends DBContext {
 
     public List<Product> getProductById(String cid) {
         List<Product> list = new ArrayList<>();
-        String sql = "select * from Product where categoryId = ?";
+        String sql = "SELECT * FROM Product WHERE categoryId = ?;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, cid);
@@ -68,7 +68,7 @@ public class ProductDAO extends DBContext {
     }
 
     public Product findProductById(String pid) {
-        String sql = "select * from Product where id = ?";
+        String sql = "select * from Product where id = ?;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, pid);
@@ -95,10 +95,7 @@ public class ProductDAO extends DBContext {
 
     public List<Product> pagingSearchProduct(String name, int index) {
         List<Product> list = new ArrayList<>();
-        String sql = "SELECT * FROM Product \n"
-                + "WHERE [name] LIKE ? OR [description] LIKE ?\n"
-                + "ORDER BY id\n"
-                + "OFFSET ? ROWS FETCH NEXT 12 ROWS ONLY";
+        String sql = "SELECT * FROM Product WHERE `name` LIKE ? OR `description` LIKE ? ORDER BY id LIMIT 12 OFFSET ?;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, "%" + name + "%");
@@ -129,7 +126,7 @@ public class ProductDAO extends DBContext {
         int count = 0;
         String sql = "SELECT COUNT(*) \n"
                 + "FROM Product \n"
-                + "WHERE [name] LIKE ? OR description LIKE ?";
+                + "WHERE `name` LIKE ? OR description LIKE ?;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, "%" + name + "%");
@@ -147,7 +144,7 @@ public class ProductDAO extends DBContext {
     public int totalProductCount() {
         int count = 0;
         String sql = "SELECT COUNT(*) \n"
-                + "FROM Product \n";
+                + "FROM Product;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -162,9 +159,9 @@ public class ProductDAO extends DBContext {
 
     public List<Product> pagingProduct(int index) {
         List<Product> list = new ArrayList<>();
-        String sql = "select * from Product\n"
-                + "order by id\n"
-                + "offset ?  rows fetch next 10 rows only";
+        String sql = "SELECT * FROM Product\n"
+                + "ORDER BY id\n"
+                + "LIMIT 10 OFFSET ?;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, (index - 1) * 10);
@@ -192,7 +189,7 @@ public class ProductDAO extends DBContext {
     public int totalProductCountByCategory(String id) {
         int count = 0;
         String sql = "SELECT COUNT(*) \n"
-                + "FROM Product where categoryId = ? \n";
+                + "FROM Product where categoryId = ?;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, id);
@@ -219,7 +216,7 @@ public class ProductDAO extends DBContext {
 
     public void addProduct(String name, String price, String quantity, String description,
             String image, String category, String country) {
-        String sql = "insert into Product values"
+        String sql = "INSERT INTO Product (name,price,quantity,description,image,status,categoryId,countryId,qtysold) VALUES"
                 + "(?,?,?,?,?,1,?,?,0)";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
@@ -238,16 +235,16 @@ public class ProductDAO extends DBContext {
 
     public void editProduct(String name, String price, String quantity, String description,
             String image, String status, String category, String country, String pid) {
-        String sql = "UPDATE [dbo].[Product]\n"
-                + "   SET [name] = ?\n"
-                + "      ,[price] = ?\n"
-                + "      ,[quantity] = ?\n"
-                + "      ,[description] = ?\n"
-                + "      ,[image] = ?\n"
-                + "      ,[status] = ?\n"
-                + "      ,[categoryId] = ?\n"
-                + "      ,[countryId] = ?\n"
-                + " WHERE id = ?";
+        String sql = "UPDATE Product\n"
+                + "SET `name` = ?,\n"
+                + "    price = ?,\n"
+                + "    quantity = ?,\n"
+                + "    description = ?,\n"
+                + "    image = ?,\n"
+                + "    status = ?,\n"
+                + "    categoryId = ?,\n"
+                + "    countryId = ?\n"
+                + "WHERE id = ?;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, name);
@@ -267,8 +264,7 @@ public class ProductDAO extends DBContext {
 
     public List<Product> getNewArrivalProduct() {
         List<Product> list = new ArrayList<>();
-        String sql = "select top 10 * from Product\n"
-                + "  order by id desc";
+        String sql = "SELECT * FROM Product ORDER BY id DESC LIMIT 10;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -293,7 +289,7 @@ public class ProductDAO extends DBContext {
     }
 
     public int getTotalProduct() {
-        String sql = "select sum(quantity) from Product";
+        String sql = "select sum(quantity) from Product;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -307,7 +303,7 @@ public class ProductDAO extends DBContext {
     }
 
     public int getTotalProductSold() {
-        String sql = "select sum(qtysold) from Product";
+        String sql = "select sum(qtysold) from Product;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -322,7 +318,7 @@ public class ProductDAO extends DBContext {
 
     public List<Product> getBestSellingProduct() {
         List<Product> list = new ArrayList<>();
-        String sql = "select top 10 * from Product order by qtysold desc";
+        String sql = "SELECT * FROM Product ORDER BY qtysold DESC LIMIT 10;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -348,7 +344,7 @@ public class ProductDAO extends DBContext {
 
     public List<Product> getLimitedEditionProduct() {
         List<Product> list = new ArrayList<>();
-        String sql = "select top 10 * from Product where [name] like '%limited edition%'";
+        String sql = "SELECT * FROM Product WHERE `name` LIKE '%limited edition%' ORDER BY id DESC LIMIT 10;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -374,10 +370,7 @@ public class ProductDAO extends DBContext {
 
     public List<Product> getRelatedProducts(String cid, String pid) {
         List<Product> list = new ArrayList<>();
-        String sql = "SELECT TOP 4 *\n"
-                + "FROM Product\n"
-                + "WHERE categoryId = ? and id != ? \n"
-                + "ORDER BY NEWID();";
+        String sql = "SELECT * FROM Product WHERE categoryId = ? AND id != ? ORDER BY RAND() LIMIT 4;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, cid);
@@ -406,10 +399,7 @@ public class ProductDAO extends DBContext {
 
     public List<Product> getTop5US_UK() {
         List<Product> list = new ArrayList<>();
-        String sql = "SELECT TOP 5 *\n"
-                + "FROM Product\n"
-                + "WHERE countryId = 1 \n"
-                + "ORDER BY NEWID();";
+        String sql = "SELECT * FROM Product WHERE countryId = 1 ORDER BY RAND() LIMIT 5;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -436,10 +426,7 @@ public class ProductDAO extends DBContext {
 
     public List<Product> getTop5K_POP() {
         List<Product> list = new ArrayList<>();
-        String sql = "SELECT TOP 5 *\n"
-                + "FROM Product\n"
-                + "WHERE countryId = 2 \n"
-                + "ORDER BY NEWID();";
+        String sql = "SELECT * FROM Product WHERE countryId = 2 ORDER BY RAND() LIMIT 5;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -466,10 +453,7 @@ public class ProductDAO extends DBContext {
 
     public List<Product> getTop5V_POP() {
         List<Product> list = new ArrayList<>();
-        String sql = "SELECT TOP 5 *\n"
-                + "FROM Product\n"
-                + "WHERE countryId = 3 \n"
-                + "ORDER BY NEWID();";
+        String sql = "SELECT * FROM Product WHERE countryId = 3 ORDER BY RAND() LIMIT 5;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();

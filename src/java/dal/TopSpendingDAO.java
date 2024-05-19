@@ -10,15 +10,16 @@ public class TopSpendingDAO extends DBContext {
     public List<TopSpending> getTop5Spending() {
         List<TopSpending> list = new ArrayList<>();
         try {
-            String sql = "select top 5 [Order].username, Users.image, Users.fullname, Users.phoneNumber, sum(totalMoney) as total\n"
-                    + "  from [Order] \n"
-                    + "  join Users on Users.username = [Order].username\n"
-                    + " where [Order].status = 1\n"
-                    + "  group by [Order].username, Users.image, Users.fullname, Users.phoneNumber\n"
-                    + "  order by total desc\n";
+            String sql = "SELECT `Order`.username, Users.image, Users.fullname, Users.phoneNumber, SUM(totalMoney) AS total\n"
+                    + "FROM `Order`\n"
+                    + "JOIN Users ON Users.username = `Order`.username\n"
+                    + "WHERE `Order`.status = 1\n"
+                    + "GROUP BY `Order`.username, Users.image, Users.fullname, Users.phoneNumber\n"
+                    + "ORDER BY total DESC\n"
+                    + "LIMIT 5;";
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 list.add(new TopSpending(rs.getString("username"), rs.getString("image"), rs.getString("fullname"),
                         rs.getString("phoneNumber"), rs.getDouble("total")));
             }

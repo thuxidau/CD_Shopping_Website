@@ -8,7 +8,7 @@ import java.util.List;
 public class UsersDAO extends DBContext {
 
     public Users check(String username, String password) {
-        String sql = "SELECT * FROM Users WHERE username = ? and password = ?";
+        String sql = "SELECT * FROM Users WHERE username = ? and password = ?;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, username);
@@ -28,7 +28,7 @@ public class UsersDAO extends DBContext {
     }
 
     public Users checkAccountExist(String username) {
-        String sql = "SELECT * FROM Users WHERE username = ?";
+        String sql = "SELECT * FROM Users WHERE username = ?;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, username);
@@ -47,7 +47,8 @@ public class UsersDAO extends DBContext {
     }
 
     public void signUp(String username, String password, String email) {
-        String sql = "insert into Users values (?,'','',?,0,'',?,'',1,'','')";
+        String sql = "INSERT INTO Users (username, fullname, phoneNumber, email, gender, location, password, dob, roleId, image, address) "
+                + "VALUES (?,'','',?,0,'',?,'',1,'','')";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, username);
@@ -61,15 +62,15 @@ public class UsersDAO extends DBContext {
 
     public void editUser(String fullname, String phone, String email, int gender, String location,
             String dob, String address, String username) {
-        String sql = "UPDATE [dbo].[Users]\n"
-                + "   SET [fullname] = ?\n"
-                + "      ,[phoneNumber] = ?\n"
-                + "      ,[email] = ?\n"
-                + "      ,[gender] = ?\n"
-                + "      ,[location] = ?\n"
-                + "      ,[dob] = ?\n"
-                + "      ,[address] = ?\n"
-                + " WHERE username = ?";
+        String sql = "UPDATE Users\n"
+                + "SET fullname = ?,\n"
+                + "    phoneNumber = ?,\n"
+                + "    email = ?,\n"
+                + "    gender = ?,\n"
+                + "    location = ?,\n"
+                + "    dob = ?,\n"
+                + "    address = ?\n"
+                + "WHERE username = ?;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, fullname);
@@ -87,9 +88,9 @@ public class UsersDAO extends DBContext {
     }
 
     public void updatePassword(Users user) {
-        String sql = "UPDATE [dbo].[Users] \n"
-                + "SET [password] = ? \n"
-                + "WHERE username = ?";
+        String sql = "UPDATE Users\n"
+                + "SET password = ?\n"
+                + "WHERE username = ?;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, user.getPassword());
@@ -121,9 +122,9 @@ public class UsersDAO extends DBContext {
     }
 
     public void makeAdmin(String username) {
-        String sql = "UPDATE [dbo].[Users] \n"
-                + "SET [roleId] = 0 \n"
-                + "WHERE username = ?";
+        String sql = "UPDATE Users\n"
+                + "SET roleId = 0\n"
+                + "WHERE username = ?;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, username);
@@ -134,9 +135,9 @@ public class UsersDAO extends DBContext {
     }
 
     public void removeAdmin(String username) {
-        String sql = "UPDATE [dbo].[Users] \n"
-                + "SET [roleId] = 1 \n"
-                + "WHERE username = ?";
+        String sql = "UPDATE Users \n"
+                + "SET roleId = 1 \n"
+                + "WHERE username = ?;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, username);
@@ -147,8 +148,8 @@ public class UsersDAO extends DBContext {
     }
 
     public void removeAccount(String username) {
-        String sql = "DELETE FROM [dbo].[Users]\n"
-                + "      WHERE username = ?";
+        String sql = "DELETE FROM Users\n"
+                + "WHERE username = ?;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, username);
@@ -161,9 +162,9 @@ public class UsersDAO extends DBContext {
     public List<Users> pagingUser(int index) {
         UsersDAO ud = new UsersDAO();
         List<Users> list = new ArrayList<>();
-        String sql = "select * from Users\n"
-                + "order by username\n"
-                + "offset ?  rows fetch next 10 rows only";
+        String sql = "SELECT * FROM Users\n"
+                + "ORDER BY username\n"
+                + "LIMIT 10 OFFSET ?;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, (index - 1) * 10);
@@ -179,13 +180,5 @@ public class UsersDAO extends DBContext {
             System.out.println(e);
         }
         return list;
-    }
-
-    public static void main(String[] args) {
-        UsersDAO ud = new UsersDAO();
-        List<Users> l = ud.getAll();
-        for (Users users : l) {
-            System.out.println(users);
-        }
     }
 }

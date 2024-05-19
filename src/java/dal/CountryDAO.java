@@ -9,8 +9,7 @@ import model.Country;
 
 public class CountryDAO extends DBContext{
     public Country getCountryById(int cid) {
-        String sql = "SELECT * "
-                + "  FROM [dbo].[Country] where id=?";
+        String sql = "SELECT * FROM Country WHERE id = ?;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, cid);
@@ -30,7 +29,7 @@ public class CountryDAO extends DBContext{
     
     public List<Country> getAll() {
         List<Country> list = new ArrayList<>();
-        String sql = "select * from Country";
+        String sql = "select * from Country;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
