@@ -1,0 +1,13 @@
+
+t
+java:S1948",Make "productDAO" transient or serializable.(Ëà·¦úÿÿÿÿ8êƒÇíÿ1J$f6b3ea18-710d-4baa-a624-f1799fa7b64e
+´
+java:S1130"yRemove the declaration of thrown exception 'jakarta.servlet.ServletException', as it cannot be thrown from method's body.(ıù±J$4aa2c9a5-9531-42bf-bf22-d745e8fcec2a
+¤
+java:S1989'"hHandle the following exceptions that could be thrown by "processRequest": ServletException, IOException.(‘ŸÑJ$47e5e3a6-03cb-4b96-a481-202e8c1d1cdf
+­
+java:S1989-"lHandle the following exception that could be thrown by "setCharacterEncoding": UnsupportedEncodingException.(áò‰øÿÿÿÿJ$63f7e02a-12d9-4d0a-bd7f-8f2cad2ca76d
+
+java:S19896"SHandle the following exception that could be thrown by "sendRedirect": IOException.(â³…J$f22d9ba6-0b43-4d28-ab75-9d309b305bc1
+ 
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(Ëà·¦úÿÿÿÿ8¹„Çíÿ1J$8b47df19-28a1-4c90-9da7-5b9062cae2fb

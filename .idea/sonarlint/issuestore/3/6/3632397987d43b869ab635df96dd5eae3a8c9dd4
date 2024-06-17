@@ -1,0 +1,18 @@
+
+g	java:S112K"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8á‡éº2
+‡
+java:S1192&"KDefine a constant instead of duplicating this literal "signup.jsp" 5 times.(‹“ŠÛJ$3a1725be-1d47-4e04-87b5-55876dbbc03d
+
+java:S1192%"FDefine a constant instead of duplicating this literal "error" 3 times.(í‡†üÿÿÿÿ8ÈÿÜ€2J$676cdaf5-3e00-4454-bce8-1a570f7052cd
+m
+java:S1948"*Make "usersDAO" transient or serializable.(Á¿¯‚8åı½€2J$c6063e63-d8a5-4576-bc14-b5c98acd251f
+¶
+java:S1130"nRemove the declaration of thrown exception 'java.sql.SQLException', as it cannot be thrown from method's body.(¦ÿ–›şÿÿÿÿ8æËèº2J$04880e44-8819-435a-b8b0-ead5eed0f03a
+
+java:S1989B"aHandle the following exceptions that could be thrown by "forward": ServletException, IOException.(‹“ŠÛJ$b38c184d-03a0-40ef-89a5-d3001b3fec8f
+…
+java:S1989I"hHandle the following exceptions that could be thrown by "processRequest": ServletException, IOException.(‘ŸÑ8ù‡éº2
+c
+java:S1989K"AHandle the "RuntimeException" thrown here in a "try/catch" block.(Ò‚Òéüÿÿÿÿ8ú‡éº2
+›
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(Á¿¯‚8øı½€2J$d60521e1-a57b-448a-aa23-76cd456f1f29

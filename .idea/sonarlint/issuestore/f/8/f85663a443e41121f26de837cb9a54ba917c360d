@@ -1,0 +1,15 @@
+
+´
+java:S1130"yRemove the declaration of thrown exception 'jakarta.servlet.ServletException', as it cannot be thrown from method's body.(ıù±J$fe396a32-d2f6-4149-aafa-637750e7202a
+k
+java:S1197%"*Move the array designators [] to the type.(¼²ÍíùÿÿÿÿJ$1c61717b-abd9-445e-9a4f-de1bde5897b8
+
+java:S19890"aHandle the following exceptions that could be thrown by "forward": ServletException, IOException.(°°‘ûJ$73a00920-9b1f-4096-bee9-7f4c637a4267
+­
+java:S19897"lHandle the following exception that could be thrown by "setCharacterEncoding": UnsupportedEncodingException.(áò‰øÿÿÿÿJ$2512f0f0-46a7-44ea-84f7-3b12d80697dc
+
+java:S1989A"aHandle the following exceptions that could be thrown by "forward": ServletException, IOException.(°°‘ûJ$ec0b6a06-089b-4500-82ab-ab993a825cb7
+w
+java:S2441C";Make "Users" serializable or don't store it in the session.(¬»—±J$deeacda1-6eec-4842-99ce-adf30f17ec26
+”
+java:S1989Q"SHandle the following exception that could be thrown by "sendRedirect": IOException.(×©ëÿÿÿÿÿJ$37f5015c-caf0-4c56-9a1b-c21a23aab06a

@@ -1,0 +1,68 @@
+
+œ
+java:S1488"YImmediately return this expression instead of assigning it to the temporary variable "u".(¬¨Ä£8ßÜº2J$c7796a44-bb9a-4c78-ab4c-0c08a803699b
+œ
+java:S1488,"YImmediately return this expression instead of assigning it to the temporary variable "u".(¬¨Ä£8ßÜº2J$e8a7e2f9-2507-4736-84f2-1fb63458952b
+Š
+java:S1192"GDefine a constant instead of duplicating this literal "gender" 4 times.(§÷ó½8ßÜº2J$5d9d9a5c-277c-479e-8ca1-5e1174ee96c5
+‘
+java:S1192"IDefine a constant instead of duplicating this literal "password" 4 times.(È…Ê›üÿÿÿÿ8ßÜº2J$ddb1e096-6076-4348-bdd5-0142988e89de
+‰
+java:S1192"FDefine a constant instead of duplicating this literal "email" 4 times.(§÷ó½8¨ßÜº2J$ab42d6a8-8185-4fc4-9aba-8db4c033cf7b
+
+java:S1192"FDefine a constant instead of duplicating this literal "image" 4 times.(È…Ê›üÿÿÿÿ8ßÜº2J$96016c1f-6e38-4912-9a0b-00e5ce736dc3
+
+java:S1192"HDefine a constant instead of duplicating this literal "address" 4 times.(Ö·ÍÖøÿÿÿÿ8ßÜº2J$7442c5ed-6476-4da9-a2cd-8bd39c788987
+
+java:S1192"GDefine a constant instead of duplicating this literal "roleId" 4 times.(È…Ê›üÿÿÿÿ8ßÜº2J$7b053abb-28d2-465d-b127-ff87a18da44d
+Œ
+java:S1192"IDefine a constant instead of duplicating this literal "location" 4 times.(§÷ó½8ßÜº2J$41ef3f26-db7a-41f0-b5cb-4307f9950be1
+Œ
+java:S1192"IDefine a constant instead of duplicating this literal "fullname" 4 times.(¬¨Ä£8¨ßÜº2J$8af3163e-da71-4612-b1e1-bc5b93ad06d0
+Œ
+java:S1192"IDefine a constant instead of duplicating this literal "username" 4 times.(¬¨Ä£8¨ßÜº2J$5cccf0f7-5582-4d32-b351-236a0d58d25d
+˜
+java:S2095¡"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(À×‹®ûÿÿÿÿ8¨ßÜº2J$3604f3dd-b4f0-4088-9393-254eb1c5d536
+˜
+java:S2095•"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(À×‹®ûÿÿÿÿ8¨ßÜº2J$4466b2ba-5033-453f-b11a-6a07b8663058
+—
+java:S2095R"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(À×‹®ûÿÿÿÿ8èé’æ2J$a1b00dbb-5903-4b01-b1cd-450c6153ebe5
+˜
+java:S2095°"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(À×‹®ûÿÿÿÿ8¨ßÜº2J$ecd7ff60-dafd-40bb-9e96-2bc0f7ace4d2
+—
+java:S2095f"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(À×‹®ûÿÿÿÿ8¨ßÜº2J$86a0d751-425d-460a-a544-fbd2875feb21
+—
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(À×‹®ûÿÿÿÿ8¨ßÜº2J$5c3e891b-9a1d-4d62-ab00-f6fb5c89eb89
+—
+java:S2095<"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(À×‹®ûÿÿÿÿ8¨ßÜº2J$251d9347-5b76-40c3-bc0d-505481cb447e
+˜
+java:S2095ˆ"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(À×‹®ûÿÿÿÿ8¨ßÜº2J$710cb17f-b662-422a-b3f7-1f851a07f6ee
+—
+java:S2095s"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(À×‹®ûÿÿÿÿ8ª³´Ù2J$4829058e-5a26-4dca-8699-66753b3c6406
+—
+java:S2095("OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(À×‹®ûÿÿÿÿ8¨ßÜº2J$46cfc151-3f90-48e5-9b3f-e7256eb44507
+~	java:S107F"<Method has 8 parameters, which is greater than 7 authorized.(Ò²½î8ªßÜº2J$34f175e9-fb96-4f7d-b560-a05178ec0211
+m	java:S106"+Replace this use of System.out by a logger.(Ø¼¢ƒ8±ßÜº2J$0eb0eeeb-0efc-402b-b174-5621ef53fd1a
+g
+java:S6905"Don't use the query "SELECT *".(´¹‘’øÿÿÿÿ8¯ßÜº2J$a5202b23-4f2b-4333-9233-796205e23057
+r	java:S106 "+Replace this use of System.out by a logger.(¨¶ÑÍşÿÿÿÿ8³ßÜº2J$01c56cd7-d5ce-40cb-87a4-66eb7dc06719
+g
+java:S6905&"Don't use the query "SELECT *".(¾›“…üÿÿÿÿ8³ßÜº2J$fd9b8fbc-bc27-409c-b709-319e5ee8c26a
+r	java:S1063"+Replace this use of System.out by a logger.(¨¶ÑÍşÿÿÿÿ8ËßÜº2J$8c31c053-0731-4839-9c55-1759a88ca2f6
+š
+java:S2737B"WAdd logic to this catch clause or eliminate it and rethrow the exception automatically.(ö™û8¸Åæº2J$abb3e642-eb7e-452d-b4ea-932c863b974a
+r	java:S106]"+Replace this use of System.out by a logger.(¨¶ÑÍşÿÿÿÿ8ÎßÜº2J$d4ffe5af-753d-4def-a47c-7ad642e9e6d1
+r	java:S106k"+Replace this use of System.out by a logger.(¨¶ÑÍşÿÿÿÿ8ÙßÜº2J$a92a1760-001e-41bb-8f5e-00cfc17e7cd8
+g
+java:S6905q"Don't use the query "SELECT *".(úì†Áüÿÿÿÿ8ÙßÜº2J$26f4474e-1d09-4919-87b8-6ab014526f9c
+r	java:S106~"+Replace this use of System.out by a logger.(¨¶ÑÍşÿÿÿÿ8İßÜº2J$1c3f1e50-76fd-4b4f-8e55-5a16904bf858
+o
+java:S1168€"+Return an empty collection instead of null.(¥¹ï8ÙßÜº2J$daad4541-fad7-40b8-90da-04a2b09aaba3
+s	java:S106Œ"+Replace this use of System.out by a logger.(¨¶ÑÍşÿÿÿÿ8İßÜº2J$4c2ecb72-8be4-4bff-a655-b82826b8ef4a
+s	java:S106™"+Replace this use of System.out by a logger.(¨¶ÑÍşÿÿÿÿ8İßÜº2J$52d2dc92-80c7-4a3a-aed9-141768828cff
+s	java:S106¥"+Replace this use of System.out by a logger.(¨¶ÑÍşÿÿÿÿ8İßÜº2J$5100c7ee-52fb-4ae2-9caf-8744bbddc6ee
+z
+java:S1854ª"6Remove this useless assignment to local variable "ud".(èà“8İßÜº2J$f07400d6-f0eb-40f5-b75f-ed805669c8c3
+k
+java:S1481ª"'Remove this unused "ud" local variable.(èà“8İßÜº2J$6e9f2302-e577-43a3-bc15-b65484a2bbd7
+s	java:S106»"+Replace this use of System.out by a logger.(¨¶ÑÍşÿÿÿÿ8à™ºÙ2J$9ad6f40f-7f56-4eb2-82ff-00f817c4f796

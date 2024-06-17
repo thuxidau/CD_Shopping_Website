@@ -1,0 +1,39 @@
+
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ´•åúÿÿÿÿ
+e
+java:S20956"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(†‘Š“
+j
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(À×‹®ûÿÿÿÿ
+k
+java:S2095€"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(À×‹®ûÿÿÿÿ
+k
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(À×‹®ûÿÿÿÿ
+j
+java:S2095D"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(À×‹®ûÿÿÿÿ
+e
+java:S2095!"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(» ¯ß
+j
+java:S2095k"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(À×‹®ûÿÿÿÿ
+j
+java:S2095`"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(À×‹®ûÿÿÿÿ
+e
+java:S2095,"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(›ÎÇ
+j
+java:S2095U"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(À×‹®ûÿÿÿÿ
+e
+java:S2095u"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(†‘Š“
+j
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ËÕ¨±ûÿÿÿÿ
+W
+java:S6909#"<Move this loop-invariant setter invocation out of this loop.(«‹íıÿÿÿÿ
+E	java:S106;"+Replace this use of System.out by a logger.(¨¶ÑÍşÿÿÿÿ
+4
+java:S6905B"Don't use the query "SELECT *".(ıØı~
+E	java:S106M"+Replace this use of System.out by a logger.(¨¶ÑÍşÿÿÿÿ
+E	java:S106Y"+Replace this use of System.out by a logger.(¨¶ÑÍşÿÿÿÿ
+E	java:S106d"+Replace this use of System.out by a logger.(¨¶ÑÍşÿÿÿÿ
+E	java:S106y"+Replace this use of System.out by a logger.(¨¶ÑÍşÿÿÿÿ
+F	java:S106†"+Replace this use of System.out by a logger.(¨¶ÑÍşÿÿÿÿ
+F	java:S106•"+Replace this use of System.out by a logger.(¨¶ÑÍşÿÿÿÿ
+l
+java:S6912&"VUse "addBatch" and "executeBatch" to execute multiple SQL statements in a single call.(êé¦œ
