@@ -500,6 +500,8 @@ public class ProductDAOTest {
     void testGetRelatedProducts(String cid, String pid, String name, float price, int quantity, String description,
                                 String image, boolean status, int categoryId, int countryId, int qtysold) throws SQLException {
         String sql = "SELECT * FROM Product WHERE categoryId = ? AND id != ? ORDER BY RAND() LIMIT 4;";
+
+        // Simulate the behavior of Category and Country within the test
         Category mockCategory = mock(Category.class);
         Country mockCountry = mock(Country.class);
 

@@ -1,0 +1,631 @@
+---
+targetClass:
+  fullClassName: "controller.AccountListServlet"
+methods:
+- method:
+    name: "processRequest"
+    sourceCodeSignature: "void processRequest(HttpServletRequest request, HttpServletResponse\
+      \ response)"
+    returnType: "void"
+    throwsExceptions:
+    - "jakarta.servlet.ServletException"
+    - "java.io.IOException"
+    parameters:
+    - name: "request"
+      type: "jakarta.servlet.http.HttpServletRequest"
+    - name: "response"
+      type: "jakarta.servlet.http.HttpServletResponse"
+    instructionFingerprint: "2C1CCC362307EA9DDB5026A2A130FAB3"
+  paths:
+  - testPathName: "processRequestWhenDefaultBranchThrowsThrowable"
+    constructorSignature: "<init>() : void"
+    problemWasSolvedByProver: false
+    inputParameters:
+    - type: "CONSTRUCTOR"
+      name: "constructor"
+      valueUuid: "target"
+    - type: "INPUT"
+      name: "request"
+      valueUuid: "request"
+    - type: "INPUT"
+      name: "response"
+      valueUuid: "response"
+    - type: "LOCAL_VARIABLE"
+      name: "response"
+      valueUuid: "response"
+      methodExercised:
+        expression: "setContentType(uniqueUuid1):void"
+    - type: "LOCAL_VARIABLE"
+      name: "response"
+      valueUuid: "response"
+      methodExercised:
+        expression: "getWriter():printWriter"
+        throwsExceptions:
+        - "java.io.IOException"
+    - type: "LOCAL_VARIABLE"
+      name: "request"
+      valueUuid: "request"
+      methodExercised:
+        expression: "getContextPath():string"
+    - type: "RESULT"
+      name: "result"
+      valueUuid: "throwable"
+    disabled: true
+    failureReason:
+      reason: "METHOD_WITHOUT_EXPRESSION_SUPPORT"
+      details: "Expression missing: java.io.PrintWriter.println(java.lang.String)\
+        \ : void"
+    allValues:
+    - sapientType: "OBJECT"
+      content: !<new>
+        target: "controller.AccountListServlet"
+        parameters: []
+      valueType: "controller.AccountListServlet"
+      uuid: "target"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletRequest"
+      uuid: "request"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletResponse"
+      uuid: "response"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletResponse"
+      uuid: "response"
+    - sapientType: "VOID"
+      valueType: "void"
+      uuid: "void"
+    - sapientType: "BASIC"
+      content: !<regular>
+        value: "text/html;charset=UTF-8"
+      valueType: "java.lang.String"
+      uuid: "uniqueUuid1"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletResponse"
+      uuid: "response"
+    - sapientType: "OBJECT"
+      content: !<new>
+        target: "java.io.PrintWriter"
+        parameters:
+        - name: "out"
+          value:
+            sapientType: "OBJECT"
+            content: !<static_method_return>
+              target: "java.io.Writer"
+              method: "nullWriter"
+              methodParameters: []
+            valueType: "java.io.Writer"
+            uuid: "printWriter-out"
+      valueType: "java.io.PrintWriter"
+      uuid: "printWriter"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletRequest"
+      uuid: "request"
+    - sapientType: "BASIC"
+      content: !<regular>
+        value: "A"
+      valueType: "java.lang.String"
+      uuid: "string"
+    - sapientType: "EXCEPTION"
+      content: !<new>
+        target: "java.lang.Throwable"
+        parameters: []
+      valueType: "java.lang.Throwable"
+      uuid: "throwable"
+    branches:
+    - lineNumber: 21
+      expression: "branch expression (line 21)"
+      range: "(21,1)-(21,200)"
+      evaluatedAs: true
+    catchBlockExercised:
+      idExternalInstruction: 0
+      id: 1
+      catchExceptions:
+      - "java.lang.Throwable"
+  - testPathName: "processRequestWhenDefaultBranch"
+    constructorSignature: "<init>() : void"
+    problemWasSolvedByProver: false
+    inputParameters:
+    - type: "CONSTRUCTOR"
+      name: "constructor"
+      valueUuid: "target"
+    - type: "INPUT"
+      name: "request"
+      valueUuid: "request"
+    - type: "INPUT"
+      name: "response"
+      valueUuid: "response"
+    - type: "LOCAL_VARIABLE"
+      name: "response"
+      valueUuid: "response"
+      methodExercised:
+        expression: "setContentType(uniqueUuid2):void"
+    - type: "LOCAL_VARIABLE"
+      name: "response"
+      valueUuid: "response"
+      methodExercised:
+        expression: "getWriter():printWriter"
+        throwsExceptions:
+        - "java.io.IOException"
+    - type: "LOCAL_VARIABLE"
+      name: "request"
+      valueUuid: "request"
+      methodExercised:
+        expression: "getContextPath():string"
+    - type: "RESULT"
+      name: "result"
+      valueUuid: "expectedResult"
+    disabled: false
+    failureReason:
+      reason: "METHOD_WITHOUT_EXPRESSION_SUPPORT"
+      details: "Expression missing: java.io.PrintWriter.println(java.lang.String)\
+        \ : void"
+    allValues:
+    - sapientType: "OBJECT"
+      content: !<new>
+        target: "controller.AccountListServlet"
+        parameters: []
+      valueType: "controller.AccountListServlet"
+      uuid: "target"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletRequest"
+      uuid: "request"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletResponse"
+      uuid: "response"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletResponse"
+      uuid: "response"
+    - sapientType: "VOID"
+      valueType: "void"
+      uuid: "void"
+    - sapientType: "BASIC"
+      content: !<regular>
+        value: "text/html;charset=UTF-8"
+      valueType: "java.lang.String"
+      uuid: "uniqueUuid2"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletResponse"
+      uuid: "response"
+    - sapientType: "OBJECT"
+      content: !<new>
+        target: "java.io.PrintWriter"
+        parameters:
+        - name: "out"
+          value:
+            sapientType: "OBJECT"
+            content: !<static_method_return>
+              target: "java.io.Writer"
+              method: "nullWriter"
+              methodParameters: []
+            valueType: "java.io.Writer"
+            uuid: "printWriter-out"
+      valueType: "java.io.PrintWriter"
+      uuid: "printWriter"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletRequest"
+      uuid: "request"
+    - sapientType: "BASIC"
+      content: !<regular>
+        value: "A"
+      valueType: "java.lang.String"
+      uuid: "string"
+    - sapientType: "VOID"
+      uuid: "expectedResult"
+    branches:
+    - lineNumber: 31
+      expression: "branch expression (line 31)"
+      range: "(31,1)-(31,200)"
+      evaluatedAs: false
+- method:
+    name: "doGet"
+    sourceCodeSignature: "void doGet(HttpServletRequest request, HttpServletResponse\
+      \ response)"
+    returnType: "void"
+    throwsExceptions:
+    - "jakarta.servlet.ServletException"
+    - "java.io.IOException"
+    parameters:
+    - name: "request"
+      type: "jakarta.servlet.http.HttpServletRequest"
+    - name: "response"
+      type: "jakarta.servlet.http.HttpServletResponse"
+    instructionFingerprint: "DCC98DE070609E07016F9D3DA9FA8F1C"
+  paths:
+  - testPathName: "doGetWhenUserGetRoleIdNotEquals0"
+    constructorSignature: "<init>() : void"
+    problemWasSolvedByProver: true
+    inputParameters:
+    - type: "CONSTRUCTOR"
+      name: "constructor"
+      valueUuid: "target"
+    - type: "INPUT"
+      name: "request"
+      valueUuid: "request"
+    - type: "INPUT"
+      name: "response"
+      valueUuid: "response"
+    - type: "LOCAL_VARIABLE"
+      name: "request"
+      valueUuid: "request"
+      methodExercised:
+        expression: "getSession():httpSession"
+    - type: "LOCAL_VARIABLE"
+      name: "session"
+      valueUuid: "httpSession"
+      methodExercised:
+        expression: "getAttribute(uniqueUuid3):object"
+    - type: "LOCAL_VARIABLE"
+      name: "response"
+      valueUuid: "response"
+      methodExercised:
+        expression: "sendRedirect(uniqueUuid4):void"
+        throwsExceptions:
+        - "java.io.IOException"
+    - type: "RESULT"
+      name: "result"
+      valueUuid: "expectedResult"
+    disabled: false
+    allValues:
+    - sapientType: "OBJECT"
+      content: !<new>
+        target: "controller.AccountListServlet"
+        parameters: []
+      valueType: "controller.AccountListServlet"
+      uuid: "target"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletRequest"
+      uuid: "request"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletResponse"
+      uuid: "response"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletRequest"
+      uuid: "request"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpSession"
+      uuid: "httpSession"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpSession"
+      uuid: "httpSession"
+    - sapientType: "OBJECT"
+      content: !<new>
+        target: "model.Users"
+        parameters: []
+        propertiesMap:
+          roleId:
+            sapientType: "BASIC"
+            content: !<regular>
+              value: -1
+            valueType: "int"
+            uuid: "roleId"
+      valueType: "model.Users"
+      uuid: "object"
+      explicitCastNeeded: true
+    - sapientType: "BASIC"
+      content: !<regular>
+        value: "account"
+      valueType: "java.lang.String"
+      uuid: "uniqueUuid3"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletResponse"
+      uuid: "response"
+    - sapientType: "VOID"
+      valueType: "void"
+      uuid: "void"
+    - sapientType: "BASIC"
+      content: !<regular>
+        value: "login"
+      valueType: "java.lang.String"
+      uuid: "uniqueUuid4"
+    - sapientType: "VOID"
+      uuid: "expectedResult"
+    branches:
+    - lineNumber: 39
+      expression: "user == null"
+      range: "(39,12)-(39,23)"
+      evaluatedAs: false
+    - lineNumber: 39
+      expression: "user.getRoleId() != 0"
+      range: "(39,28)-(39,48)"
+      evaluatedAs: true
+  - testPathName: "doGetWhenCountUserModulus10NotEquals0"
+    constructorSignature: "<init>() : void"
+    problemWasSolvedByProver: false
+    inputParameters:
+    - type: "CONSTRUCTOR"
+      name: "constructor"
+      valueUuid: "target"
+    - type: "INPUT"
+      name: "request"
+      valueUuid: "request"
+    - type: "INPUT"
+      name: "response"
+      valueUuid: "response"
+    - type: "LOCAL_VARIABLE"
+      name: "request"
+      valueUuid: "request"
+      methodExercised:
+        expression: "getSession():httpSession"
+    - type: "LOCAL_VARIABLE"
+      name: "session"
+      valueUuid: "httpSession"
+      methodExercised:
+        expression: "getAttribute(uniqueUuid5):object"
+    - type: "LOCAL_VARIABLE"
+      name: "request"
+      valueUuid: "request"
+      methodExercised:
+        expression: "getParameter(uniqueUuid6):string"
+    - type: "LOCAL_VARIABLE"
+      name: "request"
+      valueUuid: "request"
+      methodExercised:
+        expression: "setAttribute(uniqueUuid7,list2):void"
+    - type: "LOCAL_VARIABLE"
+      name: "request"
+      valueUuid: "request"
+      methodExercised:
+        expression: "setAttribute(uniqueUuid8,integer):void2"
+    - type: "LOCAL_VARIABLE"
+      name: "request"
+      valueUuid: "request"
+      methodExercised:
+        expression: "setAttribute(uniqueUuid9,integer2):void3"
+    - type: "LOCAL_VARIABLE"
+      name: "request"
+      valueUuid: "request"
+      methodExercised:
+        expression: "getRequestDispatcher(uniqueUuid10):requestDispatcher"
+    - type: "LOCAL_VARIABLE"
+      valueUuid: "requestDispatcher"
+      methodExercised:
+        expression: "forward(request,response):void4"
+        throwsExceptions:
+        - "jakarta.servlet.ServletException"
+        - "java.io.IOException"
+    - type: "RESULT"
+      name: "result"
+      valueUuid: "expectedResult"
+    disabled: true
+    failureReason:
+      reason: "VARIABLE_THAT_COULD_NOT_BE_ISOLATED_MOCKED"
+      source: "List<Users> list = ud.getAll();"
+      lineNumber: 49
+      details: "A variable could not be isolated/mocked when calling a method - Variable\
+        \ name: ud - Method: getAll"
+    allValues:
+    - sapientType: "OBJECT"
+      content: !<new>
+        target: "controller.AccountListServlet"
+        parameters: []
+      valueType: "controller.AccountListServlet"
+      uuid: "target"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletRequest"
+      uuid: "request"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletResponse"
+      uuid: "response"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletRequest"
+      uuid: "request"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpSession"
+      uuid: "httpSession"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpSession"
+      uuid: "httpSession"
+    - sapientType: "OBJECT"
+      content: !<new>
+        target: "model.Users"
+        parameters: []
+        propertiesMap:
+          roleId:
+            sapientType: "BASIC"
+            content: !<regular>
+              value: 0
+            valueType: "int"
+            uuid: "roleId"
+      valueType: "model.Users"
+      uuid: "object"
+      explicitCastNeeded: true
+    - sapientType: "BASIC"
+      content: !<regular>
+        value: "account"
+      valueType: "java.lang.String"
+      uuid: "uniqueUuid5"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletRequest"
+      uuid: "request"
+    - sapientType: "NULL"
+      valueType: "java.lang.String"
+      uuid: "string"
+    - sapientType: "BASIC"
+      content: !<regular>
+        value: "index"
+      valueType: "java.lang.String"
+      uuid: "uniqueUuid6"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletRequest"
+      uuid: "request"
+    - sapientType: "VOID"
+      valueType: "void"
+      uuid: "void"
+    - sapientType: "BASIC"
+      content: !<regular>
+        value: "acclist"
+      valueType: "java.lang.String"
+      uuid: "uniqueUuid7"
+    - sapientType: "COLLECTION"
+      content: !<collection>
+        parameters: []
+        values: []
+      valueType: "java.util.List"
+      genericValueType: "model.Users"
+      uuid: "list2"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletRequest"
+      uuid: "request"
+    - sapientType: "VOID"
+      valueType: "void"
+      uuid: "void2"
+    - sapientType: "BASIC"
+      content: !<regular>
+        value: "endP"
+      valueType: "java.lang.String"
+      uuid: "uniqueUuid8"
+    - sapientType: "BASIC"
+      content: !<regular>
+        value: 1
+      valueType: "java.lang.Integer"
+      uuid: "integer"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletRequest"
+      uuid: "request"
+    - sapientType: "VOID"
+      valueType: "void"
+      uuid: "void3"
+    - sapientType: "BASIC"
+      content: !<regular>
+        value: "tagi"
+      valueType: "java.lang.String"
+      uuid: "uniqueUuid9"
+    - sapientType: "BASIC"
+      content: !<regular>
+        value: 1
+      valueType: "java.lang.Integer"
+      uuid: "integer2"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletRequest"
+      uuid: "request"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.RequestDispatcher"
+      uuid: "requestDispatcher"
+    - sapientType: "BASIC"
+      content: !<regular>
+        value: "accountlist.jsp"
+      valueType: "java.lang.String"
+      uuid: "uniqueUuid10"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.RequestDispatcher"
+      uuid: "requestDispatcher"
+    - sapientType: "VOID"
+      valueType: "void"
+      uuid: "void4"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletRequest"
+      uuid: "request"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletResponse"
+      uuid: "response"
+    - sapientType: "VOID"
+      uuid: "expectedResult"
+    branches:
+    - lineNumber: 39
+      expression: "user == null"
+      range: "(39,12)-(39,23)"
+      evaluatedAs: false
+    - lineNumber: 39
+      expression: "user.getRoleId() != 0"
+      range: "(39,28)-(39,48)"
+      evaluatedAs: false
+    - lineNumber: 45
+      expression: "indexPage == null"
+      range: "(45,17)-(45,33)"
+      evaluatedAs: true
+    - lineNumber: 52
+      expression: "countUser % 10 != 0"
+      range: "(52,17)-(52,35)"
+      evaluatedAs: true
+- method:
+    name: "doPost"
+    sourceCodeSignature: "void doPost(HttpServletRequest request, HttpServletResponse\
+      \ response)"
+    returnType: "void"
+    throwsExceptions:
+    - "jakarta.servlet.ServletException"
+    - "java.io.IOException"
+    parameters:
+    - name: "request"
+      type: "jakarta.servlet.http.HttpServletRequest"
+    - name: "response"
+      type: "jakarta.servlet.http.HttpServletResponse"
+    instructionFingerprint: "495AE4BFEE937D5E8ABDB69D6BBCC9D6"
+  paths:
+  - testPathName: "doPostTest"
+    constructorSignature: "<init>() : void"
+    problemWasSolvedByProver: true
+    inputParameters:
+    - type: "CONSTRUCTOR"
+      name: "constructor"
+      valueUuid: "target"
+    - type: "INPUT"
+      name: "request"
+      valueUuid: "request"
+    - type: "INPUT"
+      name: "response"
+      valueUuid: "response"
+    - type: "INTERNAL"
+      name: "internalMethod"
+      methodExercised:
+        expression: "processRequest(request,response):void"
+        throwsExceptions:
+        - "jakarta.servlet.ServletException"
+        - "java.io.IOException"
+    - type: "RESULT"
+      name: "result"
+      valueUuid: "expectedResult"
+    disabled: false
+    allValues:
+    - sapientType: "OBJECT"
+      content: !<new>
+        target: "controller.AccountListServlet"
+        parameters: []
+      valueType: "controller.AccountListServlet"
+      uuid: "target"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletRequest"
+      uuid: "request"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletResponse"
+      uuid: "response"
+    - sapientType: "VOID"
+      valueType: "void"
+      uuid: "void"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletRequest"
+      uuid: "request"
+    - sapientType: "MOCK"
+      valueType: "jakarta.servlet.http.HttpServletResponse"
+      uuid: "response"
+    - sapientType: "VOID"
+      uuid: "expectedResult"
+- method:
+    name: "getServletInfo"
+    sourceCodeSignature: "String getServletInfo()"
+    returnType: "java.lang.String"
+    instructionFingerprint: "9728D9D55B74B5244AE46247C02836A8"
+  paths:
+  - testPathName: "getServletInfoTest"
+    constructorSignature: "<init>() : void"
+    problemWasSolvedByProver: true
+    inputParameters:
+    - type: "CONSTRUCTOR"
+      name: "constructor"
+      valueUuid: "target"
+    - type: "RESULT"
+      name: "result"
+      valueUuid: "expectedResult"
+    disabled: false
+    allValues:
+    - sapientType: "OBJECT"
+      content: !<new>
+        target: "controller.AccountListServlet"
+        parameters: []
+      valueType: "controller.AccountListServlet"
+      uuid: "target"
+    - sapientType: "BASIC"
+      content: !<regular>
+        value: "Short description"
+      valueType: "java.lang.String"
+      uuid: "expectedResult"

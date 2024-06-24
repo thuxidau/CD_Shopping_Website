@@ -1,10 +1,10 @@
 
 a
-java:S5786"Remove this 'public' modifier.(’¹·8áÖõ§2J$cdd5d845-2e7e-4a30-9342-ec4701548809
+java:S5786"Remove this 'public' modifier.(’¹·8áÖõ§2J$203c3c93-3667-4776-855d-f8a44afcaf6f
 ¯
-java:S1130,"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(À8ñÃç¼2J$90c3f6bd-3771-4b97-aee3-b7a2c5e40c8a
+java:S1130,"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(À8ñÃç¼2J$53c52845-5e9b-4822-99af-75277d04ca64
 y
-java:S1874-"1Remove this use of "initMocks"; it is deprecated.(çÌàûÿÿÿÿ8èÖõ§2J$5c9a6369-1071-45a8-b806-bed3ca1bfa52
-T
+java:S1874-"1Remove this use of "initMocks"; it is deprecated.(çÌàûÿÿÿÿ8èÖõ§2J$912c0578-30a3-4db7-8fd5-6a63c21303d8
+z
 java:S1128
-"7Remove this unused import 'org.junit.jupiter.api.Test'.(Öºˆß8¨º¯‚2
+"7Remove this unused import 'org.junit.jupiter.api.Test'.(Öºˆß8¨º¯‚2J$56a40aeb-5a8b-449b-a7b2-ed44d46b97b7
