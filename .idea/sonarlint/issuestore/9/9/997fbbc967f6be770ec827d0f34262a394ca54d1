@@ -1,9 +1,0 @@
-
-t
-java:S1948",Make "productDAO" transient or serializable.(Ëà·¦úÿÿÿÿ8ö…Á‚€2J$950433e4-a8f0-4066-89b6-93a8de04c794
-¤
-java:S19895"hHandle the following exceptions that could be thrown by "processRequest": ServletException, IOException.(‘ŸÑJ$4974bd39-c0b7-48b0-9b47-f3d14d1c3b99
-¤
-java:S1989;"hHandle the following exceptions that could be thrown by "processRequest": ServletException, IOException.(‘ŸÑJ$ef8e7538-02e6-48c7-90fa-57268ef974a7
- 
-java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(Ëà·¦úÿÿÿÿ8††Á‚€2J$27097b7f-999c-42b9-8c42-6a7f45bd38cd

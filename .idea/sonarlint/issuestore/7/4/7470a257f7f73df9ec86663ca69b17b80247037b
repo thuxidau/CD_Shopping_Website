@@ -1,15 +1,0 @@
-
-
-java:S1130"yRemove the declaration of thrown exception 'jakarta.servlet.ServletException', as it cannot be thrown from method's body.(ıù±
-L
-java:S1854%"6Remove this useless assignment to local variable "ud".(èà“
-=
-java:S1481%"'Remove this unused "ud" local variable.(èà“
-n
-java:S1989*"SHandle the following exception that could be thrown by "sendRedirect": IOException.(âùÒúÿÿÿÿ
-U
-java:S2441;":Make "Cart" serializable or don't store it in the session.(À¬ìÖıÿÿÿÿ
-v
-java:S1989<"aHandle the following exceptions that could be thrown by "forward": ServletException, IOException.(üí
-~
-java:S1989C"hHandle the following exceptions that could be thrown by "processRequest": ServletException, IOException.(‘ŸÑ

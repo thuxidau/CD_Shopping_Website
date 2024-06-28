@@ -1,11 +1,0 @@
-
-j
-java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(À×‹®ûÿÿÿÿ
-j
-java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(À×‹®ûÿÿÿÿ
-5
-java:S6905"Don't use the query "SELECT *".(Æ¾ò¸
-E	java:S106"+Replace this use of System.out by a logger.(¨¶ÑÍþÿÿÿÿ
-5
-java:S6905"Don't use the query "SELECT *".(¯äÌë
-E	java:S106&"+Replace this use of System.out by a logger.(¨¶ÑÍþÿÿÿÿ
