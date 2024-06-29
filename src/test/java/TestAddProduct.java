@@ -11,6 +11,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.IOException;
 import java.time.Duration;
 
+// This is the automation test for the function "Add new product"
+// with the test case "All valid information".
+// This function is only accessible by the admin
 public class TestAddProduct {
     private ChromeDriver driver;
     private WebDriverWait wait;
