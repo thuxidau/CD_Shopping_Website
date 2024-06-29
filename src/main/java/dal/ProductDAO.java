@@ -168,7 +168,7 @@ public class ProductDAO extends DBContext {
     public List<Product> pagingProduct(int index) {
         List<Product> list = new ArrayList<>();
         String sql = "SELECT * FROM Product\n"
-                + "ORDER BY id\n"
+                + "ORDER BY id desc\n"
                 + "LIMIT 10 OFFSET ?;";
         try {
             PreparedStatement st = connection.prepareStatement(sql);

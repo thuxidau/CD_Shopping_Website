@@ -11,11 +11,11 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet(name="AddServlet", urlPatterns={"/add"})
 public class AddServlet extends HttpServlet {
-    private ProductDAO productDAO;
-
-    public AddServlet(ProductDAO productDAO) {
-        this.productDAO = productDAO;
+    public AddServlet() {
+        super();
     }
+
+    private ProductDAO productDAO = new ProductDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {

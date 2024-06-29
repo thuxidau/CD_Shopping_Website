@@ -12,12 +12,11 @@ import model.Product;
 
 @WebServlet(name="HomeServlet", urlPatterns={"/home"})
 public class HomeServlet extends HttpServlet {
-
-    private ProductDAO productDAO;
-
-    public HomeServlet(ProductDAO productDAO) {
-        this.productDAO = productDAO;
+    public HomeServlet() {
+        super();
     }
+
+    private ProductDAO productDAO = new ProductDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
