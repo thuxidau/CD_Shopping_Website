@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
@@ -19,7 +20,7 @@ public class TestAddProduct {
     private WebDriverWait wait;
 
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "D:\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(30)); // Adjust the timeout as needed
@@ -34,7 +35,9 @@ public class TestAddProduct {
         WebElement loginButton = driver.findElement(By.xpath("//button[@type='submit' and contains(., 'Log in')]"));
 
         usernameField.sendKeys("thuxidau"); // Admin's username
+        Thread.sleep(1000);
         passwordField.sendKeys("123321"); // Admin's password
+        Thread.sleep(1000);
         loginButton.click();
 
         // Wait for the login to complete and redirect to the home page
@@ -69,12 +72,25 @@ public class TestAddProduct {
 
         // Fill out the form
         driver.findElement(By.name("name")).sendKeys(name);
+        Thread.sleep(1000);
         driver.findElement(By.name("price")).sendKeys(price);
+        Thread.sleep(1000);
         driver.findElement(By.name("quantity")).sendKeys(quantity);
+        Thread.sleep(1000);
         driver.findElement(By.name("description")).sendKeys(description);
+        Thread.sleep(1000);
         driver.findElement(By.name("image")).sendKeys(image);
-        driver.findElement(By.name("category")).sendKeys(category);
-        driver.findElement(By.name("country")).sendKeys(country);
+        Thread.sleep(1000);
+
+        // Select the appropriate category
+        Select categorySelect = new Select(driver.findElement(By.name("category")));
+        categorySelect.selectByValue(category); // Assuming category is the value attribute of the option
+        Thread.sleep(1000);
+
+        // Select the appropriate country
+        Select countrySelect = new Select(driver.findElement(By.name("country")));
+        countrySelect.selectByValue(country); // Assuming country is the value attribute of the option
+        Thread.sleep(1000);
 
         // Click the "Add" button
         WebElement addButton = driver.findElement(By.xpath("//input[@type='submit' and @value='Add']"));
