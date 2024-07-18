@@ -84,12 +84,12 @@ public class TestAddProduct {
 
         // Select the appropriate category
         Select categorySelect = new Select(driver.findElement(By.name("category")));
-        categorySelect.selectByValue(category); // Assuming category is the value attribute of the option
+        categorySelect.selectByValue(category); 
         Thread.sleep(1000);
 
         // Select the appropriate country
         Select countrySelect = new Select(driver.findElement(By.name("country")));
-        countrySelect.selectByValue(country); // Assuming country is the value attribute of the option
+        countrySelect.selectByValue(country);
         Thread.sleep(1000);
 
         // Click the "Add" button
